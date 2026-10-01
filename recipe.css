@@ -1,0 +1,73 @@
+/* 1. Základ: jeden sloupec (mobil) */
+.recipe {
+  display: grid;
+  gap: 1.5rem;
+}
+
+/* 2. Obrázek */
+.recipe-image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius);
+}
+
+/* 3. Údaje jako "pilulky" (Flexbox) */
+.recipe-meta {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.recipe-meta li {
+  background-color: var(--color-surface);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 0.25rem 0.75rem;
+  font-size: 1rem;
+}
+
+/* 4. Karta s ingrediencemi */
+.recipe-ingredients {
+  background-color: var(--color-surface);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1rem 1.5rem;
+}
+
+.recipe-ingredients h2,
+.recipe-directions h2 {
+  margin-top: 0;
+}
+
+/* 5. Desktop: dva sloupce */
+@media (min-width: 48rem) {
+  .recipe {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "intro      intro"
+      "meta       meta"
+      "image      ingredients"
+      "directions directions";
+  }
+
+  .recipe-intro       { grid-area: intro; }
+  .recipe-meta        { grid-area: meta; }
+  .recipe-directions  { grid-area: directions; }
+
+  /* Obrázek a karta: stejný top i stejná výška */
+  .recipe-image {
+    grid-area: image;
+    align-self: stretch;
+  }
+
+  .recipe-ingredients {
+    grid-area: ingredients;
+    align-self: stretch;
+  }
+}

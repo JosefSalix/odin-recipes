@@ -29,6 +29,7 @@
 body {
   margin: 0;
   font-family: "Nunito", system-ui, sans-serif;
+  font-size: 1.2rem;
   line-height: 1.5;
   background-color: var(--color-bg);
   color: var(--color-text);
@@ -102,4 +103,17 @@ h2 {
   padding: 0.75rem 1rem;
   font-size: 1.125rem;
   font-weight: 600;
+}
+
+nav a {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+nav a:hover,
+nav a:focus-visible {
+  text-decoration: underline;
 }
